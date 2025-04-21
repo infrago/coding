@@ -3,6 +3,7 @@ package mongodb
 import (
 	"fmt"
 
+	"go.mongodb.org/mongo-driver/v2/bson"
 	"go.mongodb.org/mongo-driver/v2/mongo"
 	"go.mongodb.org/mongo-driver/v2/mongo/options"
 
@@ -51,15 +52,20 @@ func Coding() {
 
 	// res1, err := coll.DeleteOne(ctx, Map{})
 
-	// result := Map{}
+	result := Map{}
 
-	// err = db.Collection("test").FindOne(context.Background(), Map{
-	// 	"msg": "test",
-	// }).Decode(&result)
+	bson.D
 
-	// if err != nil && err != mongo.ErrNoDocuments {
-	// 	panic(err)
-	// }
+	var m = bson.M{}
+	m.String()
+
+	err = db.Collection("test").FindOne(context.Background(), Map{
+		"msg": "test",
+	}).Decode(&result)
+
+	if err != nil && err != mongo.ErrNoDocuments {
+		panic(err)
+	}
 
 	// fmt.Println("result", result)
 
